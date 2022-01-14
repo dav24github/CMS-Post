@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::put('/users/{user}/update', [UserController::class, 'update'])->name('user.profile.update');
 
+Route::post('/users/test', [UserController::class, 'test'])->name('user.profile.test');
+
 Route::delete('/users/{user}/destroy', [UserController::class, 'destroy'])->name('user.destroy');
 
 Route::middleware('role:admin', 'auth')->group(function () {

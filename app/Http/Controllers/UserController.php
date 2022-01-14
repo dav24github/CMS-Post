@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     //
+
+    public function test(Request $request)
+    {
+        return !empty($request->checkboxArray);
+    }
+
     public function index()
     {
         $users = User::all();
@@ -18,9 +24,12 @@ class UserController extends Controller
 
     public function show(User $user)
     {
+        $users = User::all();
+
         return view('admin.users.profile', [
             'user' => $user,
-            'roles' => Role::all()
+            'roles' => Role::all(),
+            'users' => $users,
         ]);
     }
 
